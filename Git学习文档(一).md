@@ -68,7 +68,7 @@ usage: `git rm [<options>] [--] <file>...`
 3. 当文件已经修改并放入暂存区（stage）时，无法直接删除，需要`git rm --cached（不会删除本地文件）`  或者`git rm -f（从本地仓库删除）`
 4. 在`commit`之前对文件先`git rm--cached`再`git add`的操作不会对文件有任何影响
 5. `git rm` 命令后面可以列出文件或者目录的名字，也可以使用 `glob 模式`（`shell`所使用的简化的正则表达式）
-  其他用法：
+  其他用法： 
 ```
 -n, --dry-run         dry run
 -q, --quiet           do not list removed files
@@ -77,7 +77,7 @@ usage: `git rm [<options>] [--] <file>...`
 -r                    allow recursive removal
 --ignore-unmatch      exit with a zero status even if nothing matched
 ```
-###5.`git`文件改名
+###5.`git`文件改名 
 `$ git mv file_from file_to` 
  不像其它的 VCS 系统，Git 并不显式跟踪文件移动操作。 如果在 Git 中重命名了某个文件，仓库中存储的元数据并不会体现出这是一次改名操作。
 运行 git mv 就相当于运行了下面三条命令：
