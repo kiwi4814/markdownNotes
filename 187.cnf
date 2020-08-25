@@ -1,0 +1,34 @@
+[mysql]
+default-character-set = utf8mb4
+
+[mysqld]
+#  ---------------- Basic ----------------
+server_id = 100 # Mysql服务的唯一编号，每个mysql服务Id需唯一
+port = 3306 # MySQL监听端口
+basedir = /usr/local/mysql # MySQL安装根目录
+datadir = /usr/local/mysql/data # MySQL数据文件所在位置
+socket = /tmp/mysql.sock # 为MySQL客户端程序和服务器之间的本地通讯指定一个套接字文件
+skip-host-cache # 禁用主机名缓冲
+skip_name_resolve # 只能用IP地址检查客户端的登录，不用主机名
+lower_case_table_names = 1  # 是否对sql语句大小写敏感，1表示不敏感
+character-set-server = utf8mb4 # 数据库默认字符集,主流字符集支持一些特殊表情符号（特殊表情符占用4个字节）
+collation-server = utf8mb4_general_ci # 数据库字符集对应一些排序等规则，注意要和character-set-server对应
+init_connect = 'SET NAMES utf8mb4' # 设置client连接mysql时的字符集,防止乱码
+query_cache_size = 0 # 禁用mysql的缓存查询结果集功能
+query_cache_type = 0 # 禁用mysql的缓存查询结果集功能
+
+#  ---------------- Connection/File/Table ----------------
+max_connections = 10000 # 最大连接数
+max_connect_errors = 20000 # 最大错误连接数
+interactive_timeout = 1800 # MySQL连接闲置超过一定时间后(单位：秒)将会被强行关闭
+wait_timeout = 1800 # MySQL默认的wait_timeout值为8个小时, interactive_timeout参数需要同时配置才能生效
+lock_wait_timeout = 1800 # 锁定时等待的最大时间
+max_allowed_packet = 1024M # SQL数据包发送的大小，如果有BLOB对象建议修改成1G
+
+#  ---------------- log ----------------
+log-bin=/var/lib/mysql/mysql-bin
+log_error = /home/kiwi/mysql/log/error.log # 数据库错误日志文件
+binlog_format = ROW # binlog记录内容的方式，记录被操作的每一行 
+expire_logs_days = 8 # MySQL binlog日志文件保存的过期时间，过期后自动删除
+#  ---------------- Others ----------------
+sql_mode = NO_ENGINE_SUBSTITUTION,NO_AUTO_CREATE_USER

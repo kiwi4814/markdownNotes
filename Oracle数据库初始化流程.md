@@ -1,4 +1,4 @@
-##根版本数据库初始化流程
+## 根版本数据库初始化流程
 
 ### 杀掉所有相关进程（可选）
 
@@ -159,7 +159,7 @@ alert system set '_recyclebin' = false; -- 10.1版本
 alert system set recyclebin = off; 		-- 10.2版本
 ```
 
-####删除某些表的非管理员数据
+#### 删除某些表的非管理员数据
 
 ```sql
 DELETE FROM SYS_ROLE_ACTION SRA WHERE SRA.L_ROLE_ID !=200;

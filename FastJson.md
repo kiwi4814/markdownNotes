@@ -8,13 +8,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 ```
 
-####把字符串转换成`JSON`数据 
+#### 把字符串转换成`JSON`数据 
 
 ```java
 JSONObject jsonObject = JSON.parseObject(jsonString);
 ```
 
-####字符串和Java对象互转
+#### 字符串和Java对象互转
 
 ```java
 // 方法一 把json字符串转成Student对象  
@@ -27,7 +27,7 @@ Student stu2 = JSON.parseObject(jsonString, Student.class);
 String studentJson = JSON.toJSONString(stu3);
 ```
 
-####将字符串转换为数组
+#### 将字符串转换为数组
 
 ```java
 // 转换为数组
@@ -36,7 +36,7 @@ Student[] stu2 = JSON.parseObject(jsonString, new TypeReference<Student[]>() {
 });
 ```
 
-####将字符串转换为`ArrayList`
+#### 将字符串转换为`ArrayList`
 
 ```java
 // 转换成ArrayList  
@@ -44,7 +44,7 @@ ArrayList<Student> list2 = JSON.parseObject(jsonText, new TypeReference<ArrayLis
 });
 ```
 
-####Map和字符串互转
+#### Map和字符串互转
 
 ```java
 public static void map2json() {
